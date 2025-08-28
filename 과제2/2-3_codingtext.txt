@@ -1,0 +1,19 @@
+#include <vector>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+
+int solution(vector<vector<int>> dots) {
+    vector<int> xs, ys;
+    for (const auto& p : dots) {
+        xs.push_back(p[0]);
+        ys.push_back(p[1]);
+    }
+    sort(xs.begin(), xs.end());
+    xs.erase(unique(xs.begin(), xs.end()), xs.end());
+    sort(ys.begin(), ys.end());
+    ys.erase(unique(ys.begin(), ys.end()), ys.end());
+    int width = abs(xs[0] - xs[1]);
+    int height = abs(ys[0] - ys[1]);
+    return width * height;
+}

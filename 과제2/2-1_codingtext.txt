@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+long long solution(int n, int k) {
+    int free_drinks = n / 10;           
+    int pay_drinks = k - free_drinks;   
+    if (pay_drinks < 0) pay_drinks = 0; 
+    long long total = 0;
+    total += 1LL * n * 12000;           
+    total += 1LL * pay_drinks * 2000;   
+    return total;
+}
+
+int main() {
+    cout << solution(10, 3) << '\n'; 
+    cout << solution(64, 6) << '\n'; 
+
+
+    return 0;
+}

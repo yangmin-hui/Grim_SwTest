@@ -1,0 +1,16 @@
+#include <vector>
+using namespace std;
+
+vector<int> solution(vector<int> arr, vector<bool> flag) {
+    vector<int> X;
+    for (size_t i = 0; i < arr.size(); ++i) {
+        if (flag[i]) {
+            int times = arr[i] * 2;
+            X.insert(X.end(), times, arr[i]);
+        } else {
+            int remove = arr[i];
+            for (int r = 0; r < remove; ++r) X.pop_back();
+        }
+    }
+    return X;
+}

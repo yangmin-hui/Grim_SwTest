@@ -1,0 +1,16 @@
+#include <vector>
+using namespace std;
+
+int solution(vector<vector<int>> board, int k) {
+    int n = board.size();
+    if (n == 0) return 0;
+    int m = board[0].size();
+    long long sum = 0;
+    for (int i = 0; i < n; ++i) {
+        int max_j = k - i;
+        if (max_j < 0) break;
+        if (max_j >= m) max_j = m - 1;
+        for (int j = 0; j <= max_j; ++j) sum += board[i][j];
+    }
+    return static_cast<int>(sum);
+}
